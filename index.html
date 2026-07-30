@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>1001 种软骨鱼 · Cartilaginous Fishes</title>
+<meta name="description" content="554 种软骨鱼——鲨、鳐、银鲛，占全球现存种的 43%。每条带真实照片、IUCN 保护级别与全球分布图。其中 57% 已受威胁。A bilingual gallery of 554 sharks, rays and chimaeras — 43% of all living species, 57% of them threatened.">
+<meta name="theme-color" content="#05141c">
+<link rel="canonical" href="https://xujiann.github.io/1001shark/">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="软骨鱼">
+<meta property="og:type" content="website">
+<meta property="og:title" content="1001 种软骨鱼 · Cartilaginous Fishes">
+<meta property="og:description" content="554 种软骨鱼 · 鲨 · 鳐 · 银鲛 · 全球现存种的 43% · 其中 57% 已受威胁">
+<meta property="og:url" content="https://xujiann.github.io/1001shark/">
+<meta property="og:image" content="https://pic-1302017848.cos.ap-nanjing.myqcloud.com/shark/1.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pic-1302017848.cos.ap-nanjing.myqcloud.com/shark/1.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e7490'/%3E%3Ctext x='16' y='23' font-size='18' text-anchor='middle'%3E%F0%9F%A6%88%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "1001 种软骨鱼 · Cartilaginous Fishes",
+  "alternateName": "1001 Cartilaginous Fishes",
+  "url": "https://xujiann.github.io/1001shark/",
+  "description": "554 种软骨鱼：鲨、鳐、银鲛。占全球现存种的 43%，其中 57% 已受威胁。",
+  "inLanguage": ["zh-CN", "en"]
+}
+</script>
+<link rel="stylesheet" href="style.css?v=202607301145">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-title">
+      <h1><span class="t-main">1001</span><span id="t-sub">种软骨鱼</span></h1>
+      <p class="subtitle" id="t-subtitle">鲨、鳐、银鲛 —— 消失最快的一类鱼</p>
+    </div>
+    <div class="header-right">
+      <div class="header-stats">
+        <span class="stat"><strong id="shown-count">0</strong> <span id="t-species">种</span></span>
+        <span class="stat"><strong id="order-count">0</strong> <span id="t-orders">目</span></span>
+        <span class="stat"><strong id="family-count">0</strong> <span id="t-families">科</span></span>
+      </div>
+      <button id="lang-toggle" class="lang-btn" title="语言 / Language">EN</button>
+    </div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="search-wrap">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" id="search" placeholder="搜索名称、拼音、学名、目、科…" autocomplete="off">
+    <button class="clear-btn" id="clear-search" title="清除">✕</button>
+  </div>
+  <div class="filter-row">
+    <select id="iucn-filter"><option value="">全部保护级别</option></select>
+    <select id="order-filter"><option value="">全部目</option></select>
+    <select id="family-filter"><option value="">全部科</option></select>
+    <select id="sort-filter" aria-label="排序">
+      <option value="default">默认</option>
+      <option value="name">按名称</option>
+      <option value="order">按目</option>
+      <option value="family">按科</option>
+    </select>
+    <button id="family-view-btn" class="btn-outline">按科浏览</button>
+    <button id="random-btn" class="btn-accent">随机一鱼</button>
+  </div>
+</div>
+
+<nav class="cat-tabs" id="cat-tabs"></nav>
+
+<div class="family-index" id="family-index" style="display:none"></div>
+
+<div class="family-header" id="family-header" style="display:none"></div>
+
+<main class="gallery" id="gallery"></main>
+
+<div class="no-results" id="no-results" style="display:none">
+  <p id="t-noresults">未找到符合条件的鱼</p>
+  <button id="reset-btn">重置筛选</button>
+</div>
+
+<div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-label="鱼类详情">
+  <div class="modal-box">
+    <button class="modal-close" id="modal-close" aria-label="关闭">✕</button>
+    <div class="modal-content">
+      <div class="modal-img" id="modal-img"></div>
+      <div class="modal-info">
+        <div class="modal-head">
+          <div class="modal-cat-badge" id="modal-cat"></div>
+          <button class="modal-share" id="modal-share" title="复制链接">⎘ <span id="t-share">复制链接</span></button>
+        </div>
+        <h2 id="modal-name"></h2>
+        <p class="modal-en" id="modal-en"></p>
+        <p class="modal-sci" id="modal-sci"></p>
+        <dl class="modal-meta">
+          <dt id="l-iucn">保护级别</dt><dd><span id="modal-iucn" class="modal-iucn"></span></dd>
+          <dt id="l-order">目</dt><dd id="modal-order"></dd>
+          <dt id="l-family">科</dt><dd id="modal-family"></dd>
+          <dt id="l-habitat">栖息水域</dt><dd id="modal-habitat"></dd>
+          <dt id="l-size">最大体长</dt><dd id="modal-size"></dd>
+        </dl>
+        <div class="dist-wrap" id="dist-wrap" style="display:none">
+          <div class="dist-title"><span id="t-dist">全球分布</span><span id="dist-n"></span></div>
+          <div class="dist-map" id="dist-map"></div>
+        </div>
+        <p class="modal-credit" id="modal-credit"></p>
+        <div class="modal-nav">
+          <button id="prev-fish">← 上一条</button>
+          <span id="modal-num"></span>
+          <button id="next-fish">下一条 →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button id="to-top" class="to-top" aria-label="回到顶部" title="回到顶部">↑</button>
+
+<footer class="site-footer">
+  <p id="t-footer">1001+ 种真实鱼类 · 鲨、鳐、银鲛 —— 消失最快的一类鱼</p>
+  <p class="footer-credit">图片 Wikimedia Commons · 数据 Wikidata / FishBase · 仅作教育科普展示</p>
+</footer>
+
+<script defer src="shark.js?v=202607301145"></script>
+<script defer src="app.js?v=202607301145"></script>
+<!-- hub-nav: back to 1001×1001 -->
+<a id="hub-link" href="https://xujiann.github.io/" title="返回 1001 × 1001 · 万物收藏" aria-label="返回 1001×1001 万物收藏">1001 × 1001</a>
+<style>#hub-link{position:fixed;left:12px;bottom:max(12px,env(safe-area-inset-bottom));z-index:120;display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:100px;background:rgba(18,15,28,.85);border:1px solid rgba(255,255,255,.14);color:#e8e8f0;font:600 12.5px/1 system-ui,-apple-system,"Segoe UI","Noto Sans SC",sans-serif;text-decoration:none;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 4px 16px rgba(0,0,0,.35);transition:transform .2s,border-color .2s,background .2s}#hub-link::before{content:"\2756";color:#d9b26a;font-size:13px}#hub-link:hover{transform:translateY(-2px);border-color:rgba(217,178,106,.6);background:rgba(28,22,42,.95)}@media(max-width:640px){#hub-link{font-size:11.5px;padding:6px 11px;left:10px}}</style>
+</body>
+</html>

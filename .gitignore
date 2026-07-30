@@ -1,0 +1,11 @@
+node_modules/
+__pycache__/
+images/
+_*
+!gbif.json
+# _images.json 仅供本地管线，前端已改用 credits.json
+*.log
+fish.bak*.js
+.claude/
+images_orig_backup/
+images_opt/

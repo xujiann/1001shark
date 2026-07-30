@@ -1,0 +1,19 @@
+{
+  "name": "1001 种鱼 · 1001 Fishes",
+  "short_name": "1001鱼",
+  "description": "精选并展示世界上 1001 种鱼类，从珊瑚礁到深海。A curated bilingual gallery of 1001 fishes.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#05141c",
+  "theme_color": "#05141c",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='96' fill='%230e7490'/%3E%3Ctext x='256' y='368' font-size='320' text-anchor='middle'%3E%F0%9F%90%9F%3C/text%3E%3C/svg%3E",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
