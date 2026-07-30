@@ -10,32 +10,7 @@ python build_shipped.py
 echo "== 2/5 目名繁转简（可选，缺 opencc 只警告不中断）=="
 node convert_orders.js || echo "  ⚠ 繁转简失败，继续部署"
 
-echo "== 3/5 挑出尚未上传 COS 的图 =="
-rm -rf _upnew && mkdir -p _upnew
-python - <<'PY'
-import os, shutil, json, re
-txt = open("shark.js", encoding="utf-8").read()
-arr = re.sub(r"/\*.*?\*/", "", txt[txt.index("["):txt.rindex("]")+1], flags=re.S)
-ship = sorted({f["id"] for f in json.loads(arr)})
-up = set(json.load(open("_uploaded.json"))) if os.path.exists("_uploaded.json") else set()
-todo = [i for i in ship if i not in up]
-for i in todo:
-    shutil.copy2("images/%d.jpg" % i, "_upnew/%d.jpg" % i)
-print("  待传 %d 张（上线 %d 种）" % (len(todo), len(ship)))
-PY
-
-if [ "$(ls _upnew/*.jpg 2>/dev/null | wc -l)" -gt 0 ]; then
-  echo "== 4/5 上传到腾讯云 COS =="
-  python cos_upload.py _upnew shark --workers 10 | tail -2
-  python - <<'PY'
-import json, re
-txt = open("shark.js", encoding="utf-8").read()
-arr = re.sub(r"/\*.*?\*/", "", txt[txt.index("["):txt.rindex("]")+1], flags=re.S)
-json.dump(sorted({f["id"] for f in json.loads(arr)}), open("_uploaded.json", "w"))
-PY
-else
-  echo "== 4/5 无新图需上传 =="
-fi
+echo "== 3-4/5 图片已由 fetch_to_cos.py 直传 COS，本地无图，跳过上传 =="
 
 echo "== 5/5 打缓存版本号 + 提交部署 =="
 # 静态资源加 ?v=时间戳，否则老访客会一直用缓存的旧 css/js 看不到更新

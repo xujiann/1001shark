@@ -25,6 +25,13 @@ def jload(name):
     return json.load(open(p, encoding="utf-8")) if os.path.exists(p) else {}
 
 def have_images():
+    """哪些物种有图 —— 以 COS 上传清单 _uploaded.json 为准。
+       历史上是扫描本地 images/ 目录，但项目在 OneDrive 里、图片会白占云盘空间，
+       现已改为「下载→直传 COS→删本地」（见 fetch_to_cos.py），本地不再留图。
+       若清单不存在则回退到扫描本地目录（兼容旧流程）。"""
+    up = os.path.join(ROOT, "_uploaded.json")
+    if os.path.exists(up):
+        return set(json.load(open(up)))
     have, d = set(), os.path.join(ROOT, "images")
     if not os.path.isdir(d):
         return have
