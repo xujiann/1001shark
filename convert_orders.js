@@ -5,7 +5,7 @@ const fs = require("fs");
 
 const CANDIDATES = [
   "C:/Users/drxuj/Claude/Projects/1001art/node_modules/opencc-js",
-  "C:/Users/drxuj/OneDrive/claude/1001art/node_modules/opencc-js",
+  "C:/Users/drxuj/Claude/Projects/1001art/node_modules/opencc-js",
   "opencc-js",
 ];
 

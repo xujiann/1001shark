@@ -2,7 +2,7 @@
 # 增量上线：图片下到哪就上线到哪。补完图后跑这一条命令即可。
 #   用法: COS_SECRET_ID=xxx COS_SECRET_KEY=yyy bash sync_and_deploy.sh
 set -e
-cd "C:/Users/drxuj/OneDrive/claude/1001shark"
+cd "C:/Users/drxuj/Claude/Projects/1001shark"
 
 echo "== 1/5 从母版重建上线数据（只含已有图的物种）=="
 python build_shipped.py
