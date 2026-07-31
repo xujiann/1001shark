@@ -41,7 +41,7 @@
     en:{ sub:" Cartilaginous Fishes", subtitle:"Sharks, rays and chimaeras — the fastest-vanishing fishes", species:"species", families:"families",
          search:"Search name, sci. name, order, family…", allFam:"All families", all:"All", orders:"orders", featured:"Featured", lIucn:"IUCN status", threatened:"Threatened", allIucn:"All IUCN status",
          sortDefault:"Default", sortName:"By name", sortOrder:"By order", sortFamily:"By family", random:"Random",
-         noresults:"No fish match your filters", reset:"Reset filters",
+         noresults:"No species match your filters", reset:"Reset filters",
          lOrder:"Order", lFamily:"Family", lHabitat:"Habitat", lSize:"Max length", allOrd:"All orders",
          prev:"← Prev", next:"Next →",
          footer:"554 cartilaginous fishes · sharks · rays · chimaeras · 43% of all living species", langbtn:"中",
@@ -64,7 +64,7 @@
   function loadCredits(){
     if(CREDITS) return Promise.resolve(CREDITS);
     if(!creditsPromise){
-      creditsPromise = fetch("credits.json?v=202607302209").then(r=>r.ok?r.json():{})
+      creditsPromise = fetch("credits.json?v=202607312251").then(r=>r.ok?r.json():{})
         .then(c=>{ CREDITS = c||{}; return CREDITS; })
         .catch(()=>{ CREDITS = {}; return CREDITS; });
     }

@@ -50,6 +50,10 @@ def commons_name(u):
             return m.group(1)
     return ""
 
+# Wikidata 缺中文名的目，用站内物种名反推补上（依据：该目 9 个物种全部命名为「…虎鲨」）
+ORDER_ZH_FALLBACK = {"Heterodontiformes": "虎鲨目"}
+FAMILY_ZH_FALLBACK = {"Heterodontidae": "虎鲨科"}
+
 def to_cat(la):
     if la in SHARK_ORDERS: return "shark"
     if la in RAY_ORDERS:   return "ray"
@@ -95,6 +99,13 @@ def main():
         if cand:
             (zh, la), _ = cand.most_common(1)[0]
             f["order"], f["order_en"] = zh, la
+
+    # 补 Wikidata 缺失的中文目/科名
+    for f in ship:
+        if f.get("order_en") in ORDER_ZH_FALLBACK and f.get("order") == f.get("order_en"):
+            f["order"] = ORDER_ZH_FALLBACK[f["order_en"]]
+        if f.get("family_en") in FAMILY_ZH_FALLBACK and f.get("family") == f.get("family_en"):
+            f["family"] = FAMILY_ZH_FALLBACK[f["family_en"]]
 
     for f in ship:
         f["cat"] = to_cat(f.get("order_en", "")) or "shark"   # 兜底：软骨鱼里鲨类占多数
