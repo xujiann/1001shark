@@ -1,9 +1,7 @@
 // 把 shark.js 里的中文字段统一转成简体。
 //
-// ⚠️ 教训：本脚本从 1001fish 复制而来，原版只转 `order` 一个字段
-//   （鱼站的物种名在采集阶段已由 convert_more.js 转过）。
-//   软骨鱼站没有那一步，导致 339/554 物种名、150 个科名一直是繁体。
-//   现在统一转 name / family / order 三类字段。
+// ⚠️ 教训：原版只转 `order` 一个字段，物种名/科名里的扩展区罕见字没处理
+//   //   导致 50/554 条的名/科/目含 CJK 扩展区字符（如 𩽾𩾌目），多数设备显示为豆腐块。
 //
 // 依赖 1001art 的 node_modules（该项目搬过位置），逐个候选路径尝试；
 // 找不到就跳过而不报错——这是可选美化步骤，不该卡住整条部署流水线。
@@ -44,18 +42,25 @@ function safeConv(s) {
   }
   return out;
 }
-// 源数据(Wikidata)里本就带的扩展区罕见字，也统一换成通用等价写法，
-// 否则同一批鱼有的显示「魟」有的显示豆腐块，很不一致。
-const ASTRAL_FIX = {
-  "\u{2B689}": "\u9B5F",  // 𫚉 → 魟
-  "\u{29F7E}": "\u9B9F",  // 𩽾 → 鮟
-  "\u{29F8C}": "\u9C07",  // 𩾌 → 鱇
-};
+// 源数据里本就带的 CJK 扩展区字符（如 𩽾𩾌、𬶟），多数设备字体缺失 → 豆腐块。
+// 不硬编码映射表（容易猜错：𬶟 其实是 鯻 不是我以为的字），
+// 而是用 OpenCC 反向转换（简→繁）求它在基本区的正字，纯数据推导。
+const s2t = OpenCC.Converter({ from: "cn", to: "t" });
+const astralCache = new Map();
 function deAstral(str) {
   let out = "";
-  for (const ch of str) out += (ASTRAL_FIX[ch] || ch);
+  for (const ch of str) {
+    if (ch.codePointAt(0) <= 0xFFFF) { out += ch; continue; }
+    if (!astralCache.has(ch)) {
+      const t = s2t(ch);
+      const ok = [...t].every(x => x.codePointAt(0) <= 0xFFFF);
+      astralCache.set(ch, ok ? t : ch);      // 反查不出基本区就原样保留
+    }
+    out += astralCache.get(ch);
+  }
   return out;
 }
+
 
 const FIELDS = ["name", "family", "order"];   // 展示用的三个中文字段
 const path = "shark.js";
