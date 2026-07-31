@@ -24,6 +24,39 @@ if (!OpenCC) {
 }
 
 const conv = OpenCC.Converter({ from: "t", to: "cn" });
+
+// ⚠️ 有些「简化」结果落在 CJK 扩展区（U+FFFF 以上），很多字体没有这些字，
+//    会显示成豆腐块 □ —— 那还不如保留基本区的繁体写法。
+//    典型：魟(U+9B5F, 到处都能显示) → 𫚉(U+2B689, 扩展区B, 常缺字)
+//         鮟鱇 → 𩽾𩾌 同理。
+// 所以：转换结果若引入了 BMP 之外的字符，就放弃这次转换。
+function hasAstral(s) {
+  for (const ch of s) if (ch.codePointAt(0) > 0xFFFF) return true;
+  return false;
+}
+// 逐字转换：只跳过「转换后会掉进扩展区」的那个字，其余照常简化。
+// 整串放弃是不够的——「六鰓魟科」里的 鰓→鳃 该转，只有 魟→𫚉 该保留。
+function safeConv(s) {
+  let out = "";
+  for (const ch of s) {
+    const v = conv(ch);
+    out += (hasAstral(v) && !hasAstral(ch)) ? ch : v;
+  }
+  return out;
+}
+// 源数据(Wikidata)里本就带的扩展区罕见字，也统一换成通用等价写法，
+// 否则同一批鱼有的显示「魟」有的显示豆腐块，很不一致。
+const ASTRAL_FIX = {
+  "\u{2B689}": "\u9B5F",  // 𫚉 → 魟
+  "\u{29F7E}": "\u9B9F",  // 𩽾 → 鮟
+  "\u{29F8C}": "\u9C07",  // 𩾌 → 鱇
+};
+function deAstral(str) {
+  let out = "";
+  for (const ch of str) out += (ASTRAL_FIX[ch] || ch);
+  return out;
+}
+
 const FIELDS = ["name", "family", "order"];   // 展示用的三个中文字段
 const path = "shark.js";
 const lines = fs.readFileSync(path, "utf8").split(/\r?\n/);
@@ -37,7 +70,7 @@ const out = lines.map(line => {
   const o = JSON.parse(hadComma ? t.slice(0, -1) : t);
   for (const f of FIELDS) {
     if (o[f]) {
-      const v = conv(o[f]);
+      const v = deAstral(safeConv(o[f]));
       if (v !== o[f]) { o[f] = v; hits[f] = (hits[f] || 0) + 1; total++; }
     }
   }
