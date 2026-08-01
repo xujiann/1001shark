@@ -1,8 +1,7 @@
-/* 1001 种软骨鱼 — 上线数据集（554 条，均有真实照片）
-   由 build_shipped.py 从母版 shark.full.js 生成。母版共 554 条。 */
+/* 1001 种软骨鱼 — 上线数据集（552 条，均有真实照片）
+   由 build_shipped.py 从母版 shark.full.js 生成。母版共 552 条。 */
 window.SHARK_DATA = [
 {"id":1,"name":"丁字双髻鲨","sci":"Eusphyra blochii","family":"双髻鲨科","family_en":"Sphyrnidae","order":"真鲨目","order_en":"Carcharhiniformes","iucn":"CR","cat":"shark"},
-{"id":2,"name":"丁字双髻鲨","sci":"Sphyrna blochi","family":"双髻鲨科","family_en":"Sphyrnidae","order":"真鲨目","order_en":"Carcharhiniformes","cat":"shark"},
 {"id":3,"name":"丁氏双鳍电鳐","name_en":"Blackspotted numbfish","sci":"Narcine timlei","family":"双鳍电鳐科","family_en":"Narcinidae","order":"电鳐目","order_en":"Torpediniformes","iucn":"VU","cat":"ray"},
 {"id":4,"name":"丘布特凯克鲨","name_en":"Carcharocles chubutensis","sci":"Carcharodon subauriculatus","family":"鼠鲨科","family_en":"Lamnidae","order":"鼠鲨目","order_en":"Lamniformes","cat":"shark"},
 {"id":5,"name":"东京电鳐","sci":"Torpedo tokionis","family":"电鳐科","family_en":"Torpedinidae","order":"电鳐目","order_en":"Torpediniformes","cat":"ray"},
@@ -464,7 +463,6 @@ window.SHARK_DATA = [
 {"id":461,"name":"豹纹鲨","name_en":"zebra shark","sci":"Stegostoma fasciatum","family":"豹纹鲨科","family_en":"Stegostomatidae","order":"须鲛目","order_en":"Orectolobiformes","cat":"shark"},
 {"id":462,"name":"豹鲛","name_en":"Blackspotted catshark","sci":"Halaelurus buergeri","family":"猫鲨科","family_en":"Scyliorhinidae","order":"真鲨目","order_en":"Carcharhiniformes","iucn":"EN","cat":"shark"},
 {"id":463,"name":"费氏大电鲼","name_en":"New Zealand torpedo","sci":"Torpedo fairchildi","family":"电鳐科","family_en":"Torpedinidae","order":"电鳐目","order_en":"Torpediniformes","cat":"ray"},
-{"id":464,"name":"赤魟","sci":"Dasyatis akajei","family":"魟科","family_en":"Dasyatidae","order":"鲼目","order_en":"Myliobatiformes","cat":"ray"},
 {"id":465,"name":"赤魟","sci":"Hemitrygon akajei","family":"魟科","family_en":"Dasyatidae","order":"鲼目","order_en":"Myliobatiformes","iucn":"NT","cat":"ray"},
 {"id":466,"name":"赫尔须鲨","name_en":"gulf wobbegong","sci":"Orectolobus halei","family":"须鲨科","family_en":"Orectolobidae","order":"须鲛目","order_en":"Orectolobiformes","iucn":"LC","cat":"shark"},
 {"id":467,"name":"路氏双髻鲨","name_en":"scalloped hammerhead","sci":"Sphyrna lewini","family":"双髻鲨科","family_en":"Sphyrnidae","order":"真鲨目","order_en":"Carcharhiniformes","iucn":"CR","cat":"shark"},

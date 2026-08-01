@@ -1,7 +1,8 @@
-/* 1001 种软骨鱼 — 母版数据集（552 条：鲨、鳐、银鲛）
+/* 1001 种软骨鱼 — 母版数据集（554 条：鲨、鳐、银鲛）
    来源 Wikidata 软骨鱼纲 Q25371，要求「有中文名 + 有真实照片」，此标准下全球上限即 554。 */
 window.SHARK_DATA = [
 {"id": 1, "name": "丁字双髻鲨", "name_en": "", "sci": "Eusphyra blochii", "family": "", "family_en": "", "order": "", "order_en": ""},
+{"id": 2, "name": "丁字双髻鲨", "name_en": "", "sci": "Sphyrna blochi", "family": "", "family_en": "", "order": "", "order_en": ""},
 {"id": 3, "name": "丁氏双鳍电鳐", "name_en": "Blackspotted numbfish", "sci": "Narcine timlei", "family": "", "family_en": "", "order": "", "order_en": ""},
 {"id": 4, "name": "丘布特凯克鲨", "name_en": "Carcharocles chubutensis", "sci": "Carcharodon subauriculatus", "family": "", "family_en": "", "order": "", "order_en": ""},
 {"id": 5, "name": "东京电鳐", "name_en": "", "sci": "Torpedo tokionis", "family": "", "family_en": "", "order": "", "order_en": ""},
@@ -463,6 +464,7 @@ window.SHARK_DATA = [
 {"id": 461, "name": "豹纹鲨", "name_en": "zebra shark", "sci": "Stegostoma fasciatum", "family": "", "family_en": "", "order": "", "order_en": ""},
 {"id": 462, "name": "豹鮫", "name_en": "Blackspotted catshark", "sci": "Halaelurus buergeri", "family": "", "family_en": "", "order": "", "order_en": ""},
 {"id": 463, "name": "費氏大電鱝", "name_en": "New Zealand torpedo", "sci": "Torpedo fairchildi", "family": "", "family_en": "", "order": "", "order_en": ""},
+{"id": 464, "name": "赤魟", "name_en": "", "sci": "Dasyatis akajei", "family": "", "family_en": "", "order": "", "order_en": ""},
 {"id": 465, "name": "赤魟", "name_en": "", "sci": "Hemitrygon akajei", "family": "", "family_en": "", "order": "", "order_en": ""},
 {"id": 466, "name": "赫尔须鲨", "name_en": "gulf wobbegong", "sci": "Orectolobus halei", "family": "", "family_en": "", "order": "", "order_en": ""},
 {"id": 467, "name": "路氏雙髻鯊", "name_en": "scalloped hammerhead", "sci": "Sphyrna lewini", "family": "", "family_en": "", "order": "", "order_en": ""},
