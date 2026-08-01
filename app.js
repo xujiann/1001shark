@@ -35,7 +35,7 @@
          noresults:"未找到符合条件的软骨鱼", reset:"重置筛选",
          lOrder:"目", lFamily:"科", lHabitat:"栖息水域", lSize:"最大体长", allOrd:"全部目",
          prev:"← 上一条", next:"下一条 →",
-         footer:"552 种软骨鱼 · 鲨 · 鳐 · 银鲛 · 全球现存种的 43%", langbtn:"EN",
+         footer:"550 种软骨鱼 · 鲨 · 鳐 · 银鲛 · 全球现存种的 43%", langbtn:"EN",
          share:"复制链接", copied:"已复制 ✓", photo:"图片：", dist:"全球分布", records:"条观测记录", distSrc:"数据 GBIF",
          byFamily:"按科浏览", allFamiliesTitle:"按科浏览", famCount:"种", backToFamilies:"← 所有科" },
     en:{ sub:" Cartilaginous Fishes", subtitle:"Sharks, rays and chimaeras — the fastest-vanishing fishes", species:"species", families:"families",
@@ -44,7 +44,7 @@
          noresults:"No species match your filters", reset:"Reset filters",
          lOrder:"Order", lFamily:"Family", lHabitat:"Habitat", lSize:"Max length", allOrd:"All orders",
          prev:"← Prev", next:"Next →",
-         footer:"552 cartilaginous fishes · sharks · rays · chimaeras · 43% of all living species", langbtn:"中",
+         footer:"550 cartilaginous fishes · sharks · rays · chimaeras · 43% of all living species", langbtn:"中",
          share:"Copy link", copied:"Copied ✓", photo:"Photo: ", dist:"Global distribution", records:"records", distSrc:"via GBIF",
          byFamily:"By family", allFamiliesTitle:"Browse by family", famCount:"species", backToFamilies:"← All families" },
   };
@@ -64,7 +64,7 @@
   function loadCredits(){
     if(CREDITS) return Promise.resolve(CREDITS);
     if(!creditsPromise){
-      creditsPromise = fetch("credits.json?v=202608012353").then(r=>r.ok?r.json():{})
+      creditsPromise = fetch("credits.json?v=202608020019").then(r=>r.ok?r.json():{})
         .then(c=>{ CREDITS = c||{}; return CREDITS; })
         .catch(()=>{ CREDITS = {}; return CREDITS; });
     }

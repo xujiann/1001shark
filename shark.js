@@ -1,5 +1,5 @@
-/* 1001 种软骨鱼 — 上线数据集（552 条，均有真实照片）
-   由 build_shipped.py 从母版 shark.full.js 生成。母版共 552 条。 */
+/* 1001 种软骨鱼 — 上线数据集（550 条，均有真实照片）
+   由 build_shipped.py 从母版 shark.full.js 生成。母版共 550 条。 */
 window.SHARK_DATA = [
 {"id":1,"name":"丁字双髻鲨","sci":"Eusphyra blochii","family":"双髻鲨科","family_en":"Sphyrnidae","order":"真鲨目","order_en":"Carcharhiniformes","iucn":"CR","cat":"shark"},
 {"id":3,"name":"丁氏双鳍电鳐","name_en":"Blackspotted numbfish","sci":"Narcine timlei","family":"双鳍电鳐科","family_en":"Narcinidae","order":"电鳐目","order_en":"Torpediniformes","iucn":"VU","cat":"ray"},
@@ -141,7 +141,6 @@ window.SHARK_DATA = [
 {"id":139,"name":"婆罗真鲨","name_en":"Borneo shark","sci":"Carcharhinus borneensis","family":"真鲨科","family_en":"Carcharhinidae","order":"真鲨目","order_en":"Carcharhiniformes","iucn":"CR","cat":"shark"},
 {"id":140,"name":"安德森电鳐","name_en":"Florida torpedo","sci":"Torpedo andersoni","family":"电鳐科","family_en":"Torpedinidae","order":"电鳐目","order_en":"Torpediniformes","iucn":"LC","cat":"ray"},
 {"id":141,"name":"安格斯迪鲨","sci":"Carcharocles angustidens","family":"耳齿鲨科","family_en":"Otodontidae","order":"鼠鲨目","order_en":"Lamniformes","cat":"shark"},
-{"id":142,"name":"安格斯迪鲨","sci":"Otodus angustidens","family":"耳齿鲨科","family_en":"Otodontidae","order":"鼠鲨目","order_en":"Lamniformes","cat":"shark"},
 {"id":143,"name":"安的列斯锯尾鲨","name_en":"Antilles catshark","sci":"Galeus antillensis","family":"Pentanchidae","family_en":"Pentanchidae","order":"真鲨目","order_en":"Carcharhiniformes","iucn":"LC","cat":"shark"},
 {"id":144,"name":"宫齿鲛属","sci":"Delphyodontos dacriformes","cat":"shark"},
 {"id":145,"name":"宽尾拟角鲨","name_en":"spined pygmy shark","sci":"Squaliolus laticaudus","family":"黑棘鲛科","family_en":"Dalatiidae","order":"角鲨目","order_en":"Squaliformes","iucn":"LC","cat":"shark"},
@@ -378,7 +377,6 @@ window.SHARK_DATA = [
 {"id":376,"name":"窄鼻拟犁头鳐","sci":"Pseudobatos buthi","family":"犁头鳐科","family_en":"Rhinobatidae","order":"犁头鳐目","order_en":"Rhinopristiformes","iucn":"VU","cat":"ray"},
 {"id":377,"name":"笠鳞鲛","name_en":"prickly shark","sci":"Echinorhinus cookei","family":"笠鳞鲛科","family_en":"Echinorhinidae","order":"角鲨目","order_en":"Squaliformes","iucn":"DD","cat":"shark"},
 {"id":378,"name":"箕作氏兔银鲛","sci":"Hydrolagus mitsukurii","family":"短鼻银鲛科","family_en":"Chimaeridae","order":"银鲛目","order_en":"Chimaeriformes","iucn":"NT","cat":"chimaera"},
-{"id":379,"name":"箭头尖鳍鲛","sci":"Centrophorus uyato","family":"刺鲨科","family_en":"Centrophoridae","order":"角鲨目","order_en":"Squaliformes","iucn":"EN","cat":"shark"},
 {"id":380,"name":"粗体光尾鲨","sci":"Apristurus pinguis","family":"猫鲨科","family_en":"Scyliorhinidae","order":"真鲨目","order_en":"Carcharhiniformes","iucn":"LC","cat":"shark"},
 {"id":381,"name":"粗吻田氏鲨","name_en":"Rough longnose dogfish","sci":"Deania hystricosa","family":"刺鲨科","family_en":"Centrophoridae","order":"角鲨目","order_en":"Squaliformes","iucn":"DD","cat":"shark"},
 {"id":382,"name":"粗尾锯尾鲨","name_en":"Roughtail catshark","sci":"Galeus arae","family":"Pentanchidae","family_en":"Pentanchidae","order":"真鲨目","order_en":"Carcharhiniformes","iucn":"LC","cat":"shark"},

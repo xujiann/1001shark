@@ -1,4 +1,4 @@
-/* 1001 种软骨鱼 — 母版数据集（552 条：鲨、鳐、银鲛）
+/* 1001 种软骨鱼 — 母版数据集（550 条：鲨、鳐、银鲛）
    来源 Wikidata 软骨鱼纲 Q25371，要求「有中文名 + 有真实照片」，此标准下全球上限即 554。 */
 window.SHARK_DATA = [
 {"id": 1, "name": "丁字双髻鲨", "name_en": "", "sci": "Eusphyra blochii", "family": "", "family_en": "", "order": "", "order_en": ""},
@@ -141,7 +141,6 @@ window.SHARK_DATA = [
 {"id": 139, "name": "婆罗真鲨", "name_en": "Borneo shark", "sci": "Carcharhinus borneensis", "family": "", "family_en": "", "order": "", "order_en": ""},
 {"id": 140, "name": "安德森電鰩", "name_en": "Florida torpedo", "sci": "Torpedo andersoni", "family": "", "family_en": "", "order": "", "order_en": ""},
 {"id": 141, "name": "安格斯迪鲨", "name_en": "", "sci": "Carcharocles angustidens", "family": "", "family_en": "", "order": "", "order_en": ""},
-{"id": 142, "name": "安格斯迪鲨", "name_en": "", "sci": "Otodus angustidens", "family": "", "family_en": "", "order": "", "order_en": ""},
 {"id": 143, "name": "安的列斯鋸尾鯊", "name_en": "Antilles catshark", "sci": "Galeus antillensis", "family": "", "family_en": "", "order": "", "order_en": ""},
 {"id": 144, "name": "宫齿鲛属", "name_en": "", "sci": "Delphyodontos dacriformes", "family": "", "family_en": "", "order": "", "order_en": ""},
 {"id": 145, "name": "宽尾拟角鲨", "name_en": "spined pygmy shark", "sci": "Squaliolus laticaudus", "family": "", "family_en": "", "order": "", "order_en": ""},
@@ -378,7 +377,6 @@ window.SHARK_DATA = [
 {"id": 376, "name": "窄鼻拟犁头鳐", "name_en": "", "sci": "Pseudobatos buthi", "family": "", "family_en": "", "order": "", "order_en": ""},
 {"id": 377, "name": "笠鱗鮫", "name_en": "prickly shark", "sci": "Echinorhinus cookei", "family": "", "family_en": "", "order": "", "order_en": ""},
 {"id": 378, "name": "箕作氏兔銀鮫", "name_en": "", "sci": "Hydrolagus mitsukurii", "family": "", "family_en": "", "order": "", "order_en": ""},
-{"id": 379, "name": "箭頭尖鰭鮫", "name_en": "", "sci": "Centrophorus uyato", "family": "", "family_en": "", "order": "", "order_en": ""},
 {"id": 380, "name": "粗体光尾鲨", "name_en": "", "sci": "Apristurus pinguis", "family": "", "family_en": "", "order": "", "order_en": ""},
 {"id": 381, "name": "粗吻田氏鯊", "name_en": "Rough longnose dogfish", "sci": "Deania hystricosa", "family": "", "family_en": "", "order": "", "order_en": ""},
 {"id": 382, "name": "粗尾鋸尾鯊", "name_en": "Roughtail catshark", "sci": "Galeus arae", "family": "", "family_en": "", "order": "", "order_en": ""},
